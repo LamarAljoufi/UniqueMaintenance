@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author ra52m
  */
-public class Payment extends javax.swing.JFrame {
+public class Payment extends javax.swing.JFrame implements IPayment {
 
     /**
      * Creates new form Payment

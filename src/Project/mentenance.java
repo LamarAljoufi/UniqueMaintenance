@@ -9,7 +9,7 @@ package Project;
  *
  * @author ra52m
  */
-public class mentenance extends javax.swing.JFrame {
+public class mentenance extends javax.swing.JFrame implements Imentenance {
 
     /**
      * Creates new form mentenance
@@ -19,6 +19,9 @@ public class mentenance extends javax.swing.JFrame {
     }
     //Main m = new Main();
     Main m = new Main();
+
+    mentenance NextApproval;
+    static String type;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,33 +121,39 @@ public class mentenance extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        m.chooseServiceType("fix front screen", 550.0); // pass Service Type and Price to the Main Class
+        type = "fix front screen";
+        m.chooseServiceType(type, 550.0); // pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        m.chooseServiceType("Clean Internal", 192);  // pass Service Type and Price to the Main Class
+        type = "Clean Internal";
+        m.chooseServiceType(type, 192);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        m.chooseServiceType("fix back screen", 320);  // pass Service Type and Price to the Main Class
+        type = "fix back screen";
+        m.chooseServiceType(type, 320);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        m.chooseServiceType("Camera fix", 400);  // pass Service Type and Price to the Main Class
+        type = "Camera fix";
+        m.chooseServiceType(type, 400);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        m.chooseServiceType("Maintenance", 500);  // pass Service Type and Price to the Main Class
+        type = "Maintenance";
+        m.chooseServiceType(type, 500);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        m.chooseServiceType("Ask for help", 1.0);  //pass Service Type and Price to the Main Class
+        type = "Ask for help";
+        m.chooseServiceType(type, 1.0);  //pass Service Type and Price to the Main Class
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -179,8 +188,16 @@ public class mentenance extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new mentenance().setVisible(true);
+                
+                CustomerService CS = new CustomerService();
+                ITSpecialist it = new ITSpecialist();
+                CS.setNextApproval(it);
+                CS.Handle(type);
+                
+
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -193,4 +210,18 @@ public class mentenance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setNextApproval(mentenance NextApproval) {
+        this.NextApproval = NextApproval;
+    }
+
+    @Override
+    public String Approve(String Service) {
+        return null;
+    }
+
+    @Override
+    public void Handle(String Service) {
+
+    }
 }
