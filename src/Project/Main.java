@@ -5,6 +5,7 @@
  */
 package Project;
 
+import static Project.mentenance.type;
 import java.util.ArrayList;
 
 /**
@@ -16,16 +17,28 @@ public class Main {
     static double price;
     static double Discount = (15 / 100.0);
     static String paymentMethod ;
+    static String ChooseService;
 
     int index = 0;
     static ArrayList<String> info = new ArrayList<>();
 
     public static void main(String[] args) {
+         
     }
+
+    public static void setChooseService(String ChooseService) {
+        Main.ChooseService = ChooseService;
+    }
+
+    public static String getChooseService() {
+        return ChooseService;
+    }
+    
 
     public void chooseService(String service) {
         info.add(index, service);
         index++;
+        this.ChooseService=service;
     }
 
     public void chooseServiceType(String service, double price) {
@@ -60,6 +73,10 @@ public class Main {
 
     public double Getprice() {
         return price;
+    }
+
+    public static void setPrice(double price) {
+        Main.price = price;
     }
 
     public void time(String time, String month, String day) {

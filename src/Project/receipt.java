@@ -46,45 +46,52 @@ public class receipt extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setForeground(new java.awt.Color(0, 0, 51));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 150, 50));
+        jLabel11.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 0, 153));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 880, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 90, 24));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 90, 24));
 
         jLabel3.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 180, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 180, 20));
 
         jLabel4.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 130, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, 130, 20));
 
         jLabel5.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 640, 110, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 580, 110, 20));
 
         jLabel6.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 720, 280, 40));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 660, 610, 60));
 
         jLabel7.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 760, 120, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 720, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 810, 150, 20));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 770, 150, 20));
+
+        jLabel9.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 0, 153));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 810, 110, 30));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 0, 153));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, 90, 20));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 90, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/8.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/8.2.2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(1080, 1080));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1080, 1080));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1080, 1080));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,6 +180,10 @@ public class receipt extends javax.swing.JFrame {
      public void PaymentMethod(String g) {
         jLabel11.setText(g);
     }
+     
+    public void Price(String g) {
+        jLabel9.setText(g);
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel1;

@@ -20,7 +20,7 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
     //Main m = new Main();
     Main m = new Main();
 
-    mentenance NextApproval;
+    static mentenance NextApproval;
     static String type;
 
     /**
@@ -124,6 +124,7 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
         type = "fix front screen";
         m.chooseServiceType(type, 550.0); // pass Service Type and Price to the Main Class
         Brand f = new Brand();
+        chain(type);
         f.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -131,17 +132,20 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
         type = "Clean Internal";
         m.chooseServiceType(type, 192);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
+        chain(type);
         f.show();    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         type = "fix back screen";
         m.chooseServiceType(type, 320);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
+        chain(type);
         f.show();    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         type = "Camera fix";
         m.chooseServiceType(type, 400);  // pass Service Type and Price to the Main Class
+        chain(type);
         Brand f = new Brand();
         f.show();    }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -149,12 +153,14 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
         type = "Maintenance";
         m.chooseServiceType(type, 500);  // pass Service Type and Price to the Main Class
         Brand f = new Brand();
+        chain(type);
         f.show();    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         type = "Ask for help";
         m.chooseServiceType(type, 1.0);  //pass Service Type and Price to the Main Class
         Brand f = new Brand();
+        chain(type);
         f.show();    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -189,16 +195,11 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
             public void run() {
                 new mentenance().setVisible(true);
                 
-                CustomerService CS = new CustomerService();
-                ITSpecialist it = new ITSpecialist();
-                CS.setNextApproval(it);
-                CS.Handle(type);
-                
-
             }
         });
 
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton jButton1;
@@ -213,6 +214,14 @@ public class mentenance extends javax.swing.JFrame implements Imentenance {
 
     public void setNextApproval(mentenance NextApproval) {
         this.NextApproval = NextApproval;
+    }
+    
+    public void chain(String type){
+        mentenance ms = new mentenance();
+        mentenance CS = new CustomerService();
+        mentenance it = new ITSpecialist();
+        CS.setNextApproval(it);
+        CS.Handle(type);
     }
 
     @Override

@@ -9,9 +9,8 @@ package Project;
  *
  * @author DELL
  */
-public interface Imentenance {
-     
-    public void Handle(String Service) ;
-
-    public String Approve(String Service);
+public interface IProduct {
+    public String getProduct();
+    public double getPrice();
+    
 }

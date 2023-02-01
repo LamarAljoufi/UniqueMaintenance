@@ -22,6 +22,11 @@ public class Payment extends javax.swing.JFrame implements IPayment {
     }
     static Main m = new Main();
     receipt r = new receipt();
+    ICommand cancel;
+
+    public void setCancel(ICommand cancel) {
+        this.cancel = cancel;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +38,7 @@ public class Payment extends javax.swing.JFrame implements IPayment {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -45,6 +51,20 @@ public class Payment extends javax.swing.JFrame implements IPayment {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Cancel order");
+        jButton2.setAutoscrolls(true);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 870, 130, 50));
+        jButton2.getAccessibleContext().setAccessibleDescription("");
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 70, 30));
@@ -121,12 +141,13 @@ public class Payment extends javax.swing.JFrame implements IPayment {
             r.setName(m.showformation(5));
             r.setPhone(m.showformation(6));
             r.setDeviceInfo(m.showformation(7) + " ( " + m.showformation(9) + " )");
-            r.setOrderInfo(m.showformation(10) + ", " + m.showformation(11) + " service");
+            r.setOrderInfo(m.getChooseService() + " service");
             r.setLocation(m.showformation(4));
             int ran = RR.nextInt(9000) + 100;
             String rand = Integer.toString(ran);
             r.Random(rand);
             r.PaymentMethod(m.showformation(0));
+            r.Price(String.valueOf(m.Getprice()));
             
             r.show();
         }
@@ -157,6 +178,21 @@ public class Payment extends javax.swing.JFrame implements IPayment {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+      
+       
+      CancelOrder c = new CancelOrder();
+     
+       
+       Cancel cna = new Cancel();
+       cna.setjLabel1(c.cancel());
+       cna.show();
+       
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void settext(double o) {
         String t = Double.toString(o);
         jLabel1.setText(t);
@@ -209,6 +245,7 @@ public class Payment extends javax.swing.JFrame implements IPayment {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

@@ -47,6 +47,7 @@ public class PlaceOrder extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jTextField1 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         text = new javax.swing.JTextField();
@@ -59,12 +60,15 @@ public class PlaceOrder extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jCheckBox1.setText("Express delevary");
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, -1, -1));
+
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 220, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 150, 30));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, 130, 30));
         jPanel1.add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 120, 30));
 
@@ -101,11 +105,11 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (jTextField1.getText().isEmpty()) { 
+        if (jTextField1.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "You should enter location");
-        } else if (jDateChooser1.getDate() == null) { 
+        } else if (jDateChooser1.getDate() == null) {
             JOptionPane.showMessageDialog(null, "You should choose a Date");
-        } else if (timePicker1.getDisplayText().toString().isEmpty()) { 
+        } else if (timePicker1.getDisplayText().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "You should choose a time");
         } else {
             String month = Integer.toString((jDateChooser1.getDate().getMonth() + 1));
@@ -114,6 +118,13 @@ public class PlaceOrder extends javax.swing.JFrame {
             m.location(jTextField1.getText());
             Double price = m.Getprice();
             p.settext(price);
+            if (jCheckBox1.isSelected()) {
+                IProduct moo = new ExpressService(m.info.get(10), price);
+                m.setChooseService(moo.getProduct());
+                System.out.println(moo.getProduct());
+                m.setPrice(moo.getPrice());
+
+            }
             p.show();
         }
         // TODO add your handling code here:
@@ -159,6 +170,7 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
